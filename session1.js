@@ -51,8 +51,8 @@ function reverseString(str) {
         // return char + revString;
     // }, '');
 
-    //ES6 style
-    return str.split('').reduce((revString, char) => char + revString, '');
+    // ES6 style
+    // return str.split('').reduce((revString, char) => char + revString, '');
 }
 
 
@@ -60,8 +60,10 @@ function reverseString(str) {
 // Return true if palindrome and false if not 
 // Ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {
-
+function isPalindrome(int) {
+    // SOLUTION
+    const revString = str.split('').reverse().join('');
+    return revString === str;
 }
 
 
@@ -70,16 +72,62 @@ function isPalindrome(str) {
 // Ex. reverseInt(521) === 125
 
 function reverseInt(int) {
+    const revString = int.toString().split('').reverse().join('');
+    return parseInt(revString) * Math.sign(int);
 
 }
 
 
 // CHALLENGE 4: CAPITALIZE LETTERS 
+// Return a string with the first letter of every word capitalized
+// Ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
+function capitalizeLetters(str) {
+    // FIRST SOLUTION
+    // const strArr = str.toLowerCase().split(' ');
+
+    // for(let i = 0; i < strArr.length; i++) {
+        // strArr[i] = strArr[i].substring(0, 1).toUpperCase() + strArr[i].substring(1);
+    // }
+
+    // return strArr.join(' ');
+
+    
+    // SECOND SOLUTION
+    // return str
+        // .toLowerCase()
+        // .split(' ')
+        // .map(function(word) {
+            // console.log(word) ---- [quick test] no need to uncomment out
+            // return word[0].toUpperCase() + word.substr(1);
+        // })
+        // .join(' ');
 
 
+    // THIRD SOLUTION
+    // return str
+        // .toLowerCase()
+        // .split('  ')
+        // .map(word => word[0].toUpperCase() + word.substr(1))
+        // .join(' ');
 
+    // FOURTH SOLUTION
+        return str.replace(/\b[a-z]/gi, function(char) {
+            return char.toUpperCase();
+        });
+}
+
+// CHALLENGE 5: MAX CHARACTER
+// Return the character that is most common in a string
+// Ex. maxCharacter('javascript') == 'a'
+
+
+// CHALLENGE 6:
 
 
 // Call Function
-const output = reverseString('hello');
+
+// const output = reverseString('hello');
+// const output = isPalindrome('racecar');
+// const output = reverseInt(-12345);
+const output = capitalizeLetters('i love javascript')
 console.log(output);
